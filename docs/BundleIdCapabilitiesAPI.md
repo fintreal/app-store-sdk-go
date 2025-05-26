@@ -25,7 +25,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/fintreal/app-store-connect-sdk-go"
+	openapiclient "github.com/fintreal/app-store-sdk-go"
 )
 
 func main() {
@@ -89,7 +89,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/fintreal/app-store-connect-sdk-go"
+	openapiclient "github.com/fintreal/app-store-sdk-go"
 )
 
 func main() {
@@ -155,7 +155,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/fintreal/app-store-connect-sdk-go"
+	openapiclient "github.com/fintreal/app-store-sdk-go"
 )
 
 func main() {

@@ -4,7 +4,7 @@ import (
 	"math/rand"
 	"os"
 
-	openapi "github.com/fintreal/app-store-connect-sdk-go"
+	openapi "github.com/fintreal/app-store-sdk-go"
 )
 
 var apiClient = GetClient()

@@ -1,4 +1,4 @@
-module github.com/fintreal/app-store-connect-sdk-go
+module github.com/fintreal/app-store-sdk-go
 
 go 1.18
 

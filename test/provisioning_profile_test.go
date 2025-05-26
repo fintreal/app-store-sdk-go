@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	openapi "github.com/fintreal/app-store-connect-sdk-go"
+	openapi "github.com/fintreal/app-store-sdk-go"
 	"github.com/stretchr/testify/assert"
 )
 
