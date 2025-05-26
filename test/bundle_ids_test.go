@@ -22,7 +22,7 @@ func TestGetBundleId(t *testing.T) {
 		*openapi.NewBundleIdRelationshipsBundleIdCapabilitiesDataInner("bundleIdCapabilities", expectedId+"_APPLE_ID_AUTH"),
 	}
 
-	bundleId, _, err := apiClient.BundleIdsAPI.BundleIdsGetInstance(context.Background(), "Y74BKFQXG8").Include([]string{"bundleIdCapabilities"}).Execute()
+	bundleId, _, err := apiClient.BundleIdsAPI.BundleIdsGetInstance(context.Background(), expectedId).Include([]string{"bundleIdCapabilities"}).Execute()
 	assert.Equal(t, expectedId, bundleId.Data.GetId())
 	assert.Equal(t, expectedIdentifier, bundleId.Data.Attributes.GetIdentifier())
 	assert.Equal(t, expectedName, bundleId.Data.Attributes.GetName())
