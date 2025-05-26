@@ -1,0 +1,27 @@
+name: Test
+
+on:
+  pull_request:
+    branches:
+      - main
+
+env:
+  KEY_DATA: ${{ secrets.KEY_DATA }}
+  KEY_ID: ${{ secrets.KEY_ID }}
+  ISSUER_ID: ${{ secrets.ISSUER_ID }}
+
+jobs:
+  integration-test:
+    name: Integration Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.24.1'
+      
+      - name: Run tests
+        run: go test ./test -count=1 -cover
