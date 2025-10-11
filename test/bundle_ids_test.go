@@ -36,7 +36,7 @@ func TestCreateAndDeleteBundleId(t *testing.T) {
 	input := *openapi.NewBundleIdCreateRequest(
 		*openapi.NewBundleIdCreateRequestData(
 			"bundleIds",
-			*openapi.NewBundleIdCreateRequestDataAttributes(name, "UNIVERSAL", identifier),
+			*openapi.NewBundleIdCreateRequestDataAttributes(name, "IOS", identifier),
 		),
 	)
 
