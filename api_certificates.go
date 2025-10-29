@@ -334,6 +334,13 @@ func (a *CertificatesAPIService) CertificatesDeleteInstanceExecute(r ApiCertific
 type ApiCertificatesGetCollectionRequest struct {
 	ctx context.Context
 	ApiService *CertificatesAPIService
+	filterSerialNumber *[]string
+}
+
+// filter by attribute &#39;serialNumber&#39;
+func (r ApiCertificatesGetCollectionRequest) FilterSerialNumber(filterSerialNumber []string) ApiCertificatesGetCollectionRequest {
+	r.filterSerialNumber = &filterSerialNumber
+	return r
 }
 
 func (r ApiCertificatesGetCollectionRequest) Execute() (*CertificatesResponse, *http.Response, error) {
@@ -374,6 +381,9 @@ func (a *CertificatesAPIService) CertificatesGetCollectionExecute(r ApiCertifica
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.filterSerialNumber != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "filter[serialNumber]", r.filterSerialNumber, "form", "csv")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

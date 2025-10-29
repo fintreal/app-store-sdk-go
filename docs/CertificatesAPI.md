@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 
 ## CertificatesGetCollection
 
-> CertificatesResponse CertificatesGetCollection(ctx).Execute()
+> CertificatesResponse CertificatesGetCollection(ctx).FilterSerialNumber(filterSerialNumber).Execute()
 
 
 
@@ -161,10 +161,11 @@ import (
 )
 
 func main() {
+	filterSerialNumber := []string{"Inner_example"} // []string | filter by attribute 'serialNumber' (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CertificatesAPI.CertificatesGetCollection(context.Background()).Execute()
+	resp, r, err := apiClient.CertificatesAPI.CertificatesGetCollection(context.Background()).FilterSerialNumber(filterSerialNumber).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CertificatesAPI.CertificatesGetCollection``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -176,12 +177,16 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiCertificatesGetCollectionRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filterSerialNumber** | **[]string** | filter by attribute &#39;serialNumber&#39; | 
 
 ### Return type
 

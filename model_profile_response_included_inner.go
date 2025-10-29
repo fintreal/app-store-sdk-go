@@ -83,54 +83,6 @@ func (dst *ProfileResponseIncludedInner) UnmarshalJSON(data []byte) error {
 		}
 	}
 
-	// check if the discriminator value is 'BundleId'
-	if jsonDict["type"] == "BundleId" {
-		// try to unmarshal JSON data into BundleId
-		err = json.Unmarshal(data, &dst.BundleId);
-		if err == nil {
-			jsonBundleId, _ := json.Marshal(dst.BundleId)
-			if string(jsonBundleId) == "{}" { // empty struct
-				dst.BundleId = nil
-			} else {
-				return nil // data stored in dst.BundleId, return on the first match
-			}
-		} else {
-			dst.BundleId = nil
-		}
-	}
-
-	// check if the discriminator value is 'Certificate'
-	if jsonDict["type"] == "Certificate" {
-		// try to unmarshal JSON data into Certificate
-		err = json.Unmarshal(data, &dst.Certificate);
-		if err == nil {
-			jsonCertificate, _ := json.Marshal(dst.Certificate)
-			if string(jsonCertificate) == "{}" { // empty struct
-				dst.Certificate = nil
-			} else {
-				return nil // data stored in dst.Certificate, return on the first match
-			}
-		} else {
-			dst.Certificate = nil
-		}
-	}
-
-	// check if the discriminator value is 'Device'
-	if jsonDict["type"] == "Device" {
-		// try to unmarshal JSON data into Device
-		err = json.Unmarshal(data, &dst.Device);
-		if err == nil {
-			jsonDevice, _ := json.Marshal(dst.Device)
-			if string(jsonDevice) == "{}" { // empty struct
-				dst.Device = nil
-			} else {
-				return nil // data stored in dst.Device, return on the first match
-			}
-		} else {
-			dst.Device = nil
-		}
-	}
-
 	// try to unmarshal JSON data into BundleId
 	err = json.Unmarshal(data, &dst.BundleId);
 	if err == nil {

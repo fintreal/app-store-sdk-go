@@ -835,7 +835,20 @@
           "Certificates"
         ],
         "operationId": "certificates_getCollection",
-        "parameters": [],
+        "parameters": [{
+          "name" : "filter[serialNumber]",
+          "in" : "query",
+          "description" : "filter by attribute 'serialNumber'",
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "style" : "form",
+          "explode" : false,
+          "required" : false
+        }],
         "responses": {
           "400": {
             "description": "Parameter error(s)",
