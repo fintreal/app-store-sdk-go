@@ -17,4 +17,13 @@ func TestGetCertificate(t *testing.T) {
 	assert.Equal(t, "Apple Development: Adam Kovacs", data.Data.Attributes.Name)
 	assert.Equal(t, openapi.CertificateType("DEVELOPMENT"), data.Data.Attributes.CertificateType)
 	assert.Equal(t, "3B41B0552665AF0B4BE18D0F747C19A1", data.Data.Attributes.SerialNumber)
+	assert.Equal(t, "Adam Kovacs", data.Data.Attributes.DisplayName)
+}
+
+func TestGetBySerialNumber(t *testing.T) {
+	serialNumber := "3B41B0552665AF0B4BE18D0F747C19A1"
+	data, _, err := apiClient.CertificatesAPI.CertificatesGetCollection(context.Background()).FilterSerialNumber([]string{serialNumber}).Execute()
+	assert.NoError(t, err)
+	assert.Equal(t, 1, len(data.Data))
+	assert.Equal(t, serialNumber, data.Data[0].Attributes.SerialNumber)
 }
