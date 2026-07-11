@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 ## DevicesGetCollection
 
-> DevicesResponse DevicesGetCollection(ctx).FilterUdid(filterUdid).Limit(limit).Cursor(cursor).Execute()
+> DevicesResponse DevicesGetCollection(ctx).FilterUdid(filterUdid).Execute()
 
 
 
@@ -95,12 +95,10 @@ import (
 
 func main() {
 	filterUdid := []string{"Inner_example"} // []string | filter by device UDID (optional)
-	limit := int32(56) // int32 | maximum resources per page (optional)
-	cursor := "cursor_example" // string | pagination cursor from links.next (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DevicesAPI.DevicesGetCollection(context.Background()).FilterUdid(filterUdid).Limit(limit).Cursor(cursor).Execute()
+	resp, r, err := apiClient.DevicesAPI.DevicesGetCollection(context.Background()).FilterUdid(filterUdid).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DevicesAPI.DevicesGetCollection``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -122,8 +120,6 @@ Other parameters are passed through a pointer to a apiDevicesGetCollectionReques
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **filterUdid** | **[]string** | filter by device UDID | 
- **limit** | **int32** | maximum resources per page | 
- **cursor** | **string** | pagination cursor from links.next | 
 
 ### Return type
 

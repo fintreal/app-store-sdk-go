@@ -192,25 +192,11 @@ type ApiDevicesGetCollectionRequest struct {
 	ctx context.Context
 	ApiService *DevicesAPIService
 	filterUdid *[]string
-	limit *int32
-	cursor *string
 }
 
 // filter by device UDID
 func (r ApiDevicesGetCollectionRequest) FilterUdid(filterUdid []string) ApiDevicesGetCollectionRequest {
 	r.filterUdid = &filterUdid
-	return r
-}
-
-// maximum resources per page
-func (r ApiDevicesGetCollectionRequest) Limit(limit int32) ApiDevicesGetCollectionRequest {
-	r.limit = &limit
-	return r
-}
-
-// pagination cursor from links.next
-func (r ApiDevicesGetCollectionRequest) Cursor(cursor string) ApiDevicesGetCollectionRequest {
-	r.cursor = &cursor
 	return r
 }
 
@@ -262,12 +248,6 @@ func (a *DevicesAPIService) DevicesGetCollectionExecute(r ApiDevicesGetCollectio
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "filter[udid]", t, "form", "multi")
 		}
-	}
-	if r.limit != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
-	}
-	if r.cursor != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "cursor", r.cursor, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
